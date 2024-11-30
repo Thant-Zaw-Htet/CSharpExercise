@@ -107,7 +107,7 @@ namespace BloodType
                     break;
 
             }
-            Console.WriteLine("------------------------------------");
+            Console.WriteLine("------------------------------------ \n");
             goto START;
         }
     }
