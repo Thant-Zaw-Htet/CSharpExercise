@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BloodType
 {
@@ -10,6 +6,7 @@ namespace BloodType
     {
         static void Main()
         {
+            START:
             Console.WriteLine("Select father blood type (A, B, AB, O): ");
             string fatherBT = Console.ReadLine().ToUpper();
 
@@ -103,11 +100,15 @@ namespace BloodType
                             break;
                     }
                     break;
+                   
 
                 default:
                     Console.WriteLine("Invalid father blood type.");
                     break;
+
             }
+            Console.WriteLine("------------------------------------");
+            goto START;
         }
     }
 }
