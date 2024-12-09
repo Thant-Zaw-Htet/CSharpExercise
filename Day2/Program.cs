@@ -57,9 +57,22 @@ namespace Day2
             //        Console.WriteLine("Plain Card");break;
             //}
 
-       
+            //int.Parse(string s): Purpose: Converts a "string" representation of a number into an integer. Null Handling: Throws an exception (ArgumentNullException) if the input is null.
+
+            //Convert.ToInt32(object value): Purpose: Converts various types (including strings) to an intege Null Handling: Returns 0 if the input is null (no exception)
+            //int a = 10;
+            //int b = 0;
+            //int result = a / b;
 
 
+            int first = 1;
+            string one = "1";
+            bool myTrue = false;
+            decimal myDecimal = 7.23m;
+            long myLong = 70;
+
+            Console.WriteLine(int.Parse(one));
+            Console.WriteLine(Convert.ToInt32(first));
 
 
 
