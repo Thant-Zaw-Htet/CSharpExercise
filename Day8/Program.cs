@@ -10,7 +10,6 @@ namespace Day8
     {
         static void Main(string[] args)
         {
-            
 
         }
     }
