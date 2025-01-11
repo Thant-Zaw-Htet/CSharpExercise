@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24625584-C0B9-4BCE-A5D7-209E0C1A8676}</ProjectGuid>
+    <ProjectGuid>{F14B1A6E-A1E3-4F32-901B-A0C07B0BCACA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Method</RootNamespace>
-    <AssemblyName>Method</AssemblyName>
+    <RootNamespace>DayDelegate</RootNamespace>
+    <AssemblyName>DayDelegate</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonConstants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24625584-C0B9-4BCE-A5D7-209E0C1A8676}</ProjectGuid>
+    <ProjectGuid>{CF0DC324-9C57-4A4B-A34E-D798A1FF31BF}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Method</RootNamespace>
-    <AssemblyName>Method</AssemblyName>
+    <RootNamespace>StarUniversity</RootNamespace>
+    <AssemblyName>StarUniversity</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonConstants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Students.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

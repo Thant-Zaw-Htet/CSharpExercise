@@ -21,6 +21,9 @@ namespace Method
          
             Console.WriteLine($"{computer4}");
 
+            User user = new User();
+            user.AppName = CommonConstants.APP_NAME;
+
         }
     }
 
@@ -47,5 +50,17 @@ namespace Method
             string output = $"Have Copilot with amount: {amount}";
             return output;
         }
+
+    }
+
+    class User
+    {
+       public string AppName { get; set; }
+       public string Version { get; set; }
+       
+       public string Author { get; set; }
+       
+
+
     }
 }

@@ -12,6 +12,7 @@ namespace ItMall
     {
         static List<string> itemList = new List<string>();
         static List<decimal> priceList = new List<decimal>();
+        static List<Guid> guidList = new List<Guid>();
         static Dictionary<string, string> userLogin = new Dictionary<string, string>();
     
         
@@ -35,7 +36,8 @@ namespace ItMall
                     if (returnobj != null)
                     {
                         Console.WriteLine($"{returnobj.Id}| {returnobj.Name} was created successfully.");
-                        userLogin.Add(user.Name, user.Password);  
+                        userLogin.Add(user.Name, user.Password);
+                        guidList.Add(user.Id);
                         Main();
                     }
 
@@ -66,18 +68,11 @@ namespace ItMall
 
                         }
                         
-                    }
-                  
-
+                    }                  
                 default:
                     Console.WriteLine("Invalid option.");
                     break;
-
-
-
-            }
-
-            
+            }    
         }
         private static void Menu()
         {
@@ -290,7 +285,6 @@ namespace ItMall
                 Main();
             }
         }
-
     }
 
     class User
@@ -299,8 +293,7 @@ namespace ItMall
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-
-        
+   
         public User Register(string name, string email, string password)
         {
             User user = new User();
@@ -312,7 +305,6 @@ namespace ItMall
 
             return user;
         }
-
         public User Register(string jToken)
         {
             return new User();
