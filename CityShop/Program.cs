@@ -1,38 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CityShop
 {
-    internal class Program  
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("<<<Welcome From CityShop>>> \n(1)Add New Product \n(2)Show All Product");
-            int choice = int.Parse(Console.ReadLine());
-            switch (choice)
+            while (true)
             {
-                case 1:
-                    Product.ProductDisplay();
-                    
-                    break;
-                case 2:
-                    Product.ShowProductList();
-                    break;
-            }              
+                Console.WriteLine();
+                Console.WriteLine("<<<Welcome From CityShop>>> \n(1) Add New Product \n(2) Show All Products \n(3) Exit");
+                int choice = int.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        Product.ProductDisplay();
+                        break;
+                    case 2:
+                        Product.ShowProductList();
+                        break;
+                    case 3:
+                        Console.WriteLine("Exiting...");
+                        return; // Exit the application
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+            }
         }
     }
-
 
     public class Inventory
     {
         public Guid ProductId { get; set; }
         public string ProductName { get; set; }
         public decimal PurchasePrice { get; set; }
-        public decimal SellingPring { get; set; }
+        public decimal SellingPrice { get; set; }
         public decimal Profit { get; set; }
         public int Quantity { get; set; }
 
@@ -45,65 +50,66 @@ namespace CityShop
             ProductId = productId;
             ProductName = productName;
             PurchasePrice = purchasePrice;
-            SellingPring = sellingPrice;
-            Profit = SellingPring - PurchasePrice;
+            SellingPrice = sellingPrice;
+            Profit = SellingPrice - PurchasePrice;
             Quantity = quantity;
         }
-
     }
 
     public class Product
     {
         static List<Inventory> inventories = new List<Inventory>();
+
         public static void ProductDisplay()
         {
+            Console.WriteLine("Enter 'exit' to go back to the main menu.");
             while (true)
             {
                 Console.Write("Enter product name: ");
                 string productName = Console.ReadLine();
-                Console.Write("Enter product quality: ");
-                string productAmountInput = Console.ReadLine();
-                Console.Write("Enter Purchase price: ");
-                string purchasePriceInput = Console.ReadLine();
-                Console.Write("Enter Selling Price: ");
-                string sellingPriceInput = Console.ReadLine();
+                if (productName.Equals("exit", StringComparison.OrdinalIgnoreCase)) break;
 
-                if (string.IsNullOrEmpty(productName) || !int.TryParse(productAmountInput, out int productAmount) || !decimal.TryParse(purchasePriceInput, out decimal purchasePrice) || !decimal.TryParse(sellingPriceInput, out decimal sellingPrice))
+                Console.Write("Enter product quantity: ");
+                string productAmountInput = Console.ReadLine();
+                if (productAmountInput.Equals("exit", StringComparison.OrdinalIgnoreCase)) break;
+
+                Console.Write("Enter purchase price: ");
+                string purchasePriceInput = Console.ReadLine();
+                if (purchasePriceInput.Equals("exit", StringComparison.OrdinalIgnoreCase)) break;
+
+                Console.Write("Enter selling price: ");
+                string sellingPriceInput = Console.ReadLine();
+                if (sellingPriceInput.Equals("exit", StringComparison.OrdinalIgnoreCase)) break;
+
+                if (int.TryParse(productAmountInput, out int quantity) &&
+                    decimal.TryParse(purchasePriceInput, out decimal purchasePrice) &&
+                    decimal.TryParse(sellingPriceInput, out decimal sellingPrice))
                 {
-                    Console.WriteLine("Please fill data first! ");
+                    Guid productId = Guid.NewGuid();
+                    Inventory newProduct = new Inventory(productId, productName, purchasePrice, sellingPrice, 0, quantity);
+                    inventories.Add(newProduct);
+                    Console.WriteLine("Product added successfully!\n");
                 }
                 else
                 {
-                    decimal profitInput = sellingPrice - purchasePrice;
-                    Inventory inventory = new Inventory(Guid.NewGuid(), productName, purchasePrice, sellingPrice, profitInput, productAmount);
-
-                    inventories.Add(inventory);
-                    Console.Read();
-                    Console.WriteLine("Product Add Successfully! ");
-                  
-
+                    Console.WriteLine("Invalid input. Please try again.");
                 }
             }
         }
-        
 
         public static void ShowProductList()
         {
-            if (inventories.Count <= 0)
+            if (inventories.Count == 0)
             {
-                Console.WriteLine("No Product Add");
-            }
-            else
-            {
-                foreach (var inventoriesList in inventories)
-                {
-                    Console.WriteLine($"ProductID: {inventoriesList.ProductId} | ProductName: {inventoriesList.ProductName} | Product Quantity: {inventoriesList.Quantity} | Product Purchase Price: {inventoriesList.PurchasePrice} | Product Selling Price: {inventoriesList.SellingPring} | Product Profit:  {inventoriesList.Profit}");
-                }
+                Console.WriteLine("No products found.");
+                return;
             }
 
-
+            Console.WriteLine("Product List:");
+            foreach (var product in inventories)
+            {
+                Console.WriteLine($"ID: {product.ProductId}, Name: {product.ProductName}, Purchase Price: {product.PurchasePrice}, Selling Price: {product.SellingPrice}, Profit: {product.Profit}, Quantity: {product.Quantity}");
+            }
         }
-
-
     }
 }

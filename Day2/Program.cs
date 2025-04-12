@@ -10,6 +10,18 @@ namespace Day2
     {
         static void Main(string[] args)
         {
+
+           
+
+            double doubleNum = 1.23;
+            int intNum = (int)doubleNum;
+
+            Console.WriteLine(intNum);
+
+
+            byte b = 10;
+            int i = b;
+            Console.WriteLine(i);
             //Console.WriteLine("Enter your nationality: ");
             //string nat = Console.ReadLine();
 
@@ -65,14 +77,14 @@ namespace Day2
             //int result = a / b;
 
 
-            int first = 1;
-            string one = "1";
-            bool myTrue = false;
-            decimal myDecimal = 7.23m;
-            long myLong = 70;
+            //int first = 1;
+            //string one = "1";
+            //bool myTrue = false;
+            //decimal myDecimal = 7.23m;
+            //long myLong = 70;
 
-            Console.WriteLine(int.Parse(one));
-            Console.WriteLine(Convert.ToInt32(first));
+            //Console.WriteLine(int.Parse(one));
+            //Console.WriteLine(Convert.ToInt32(first));
 
 
 

@@ -1,0 +1,22 @@
+﻿{
+  "student": [
+    {
+      "id": 25,
+      "name": "Student1",
+      "gender": "Male",
+      "subjects": "Myanmar"
+    },
+    {
+      "id": 25,
+      "name": "Student2",
+      "gender": "Female",
+      "subjects": "English"
+    },
+    {
+      "id": 25,
+      "name": "Student3",
+      "gender": "Male ",
+      "subjects": "Maths"
+    }
+  ]
+}

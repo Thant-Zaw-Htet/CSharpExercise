@@ -13,21 +13,34 @@ namespace Array
         static void Main(string[] args)
         {
 
-            ArrayList array = new ArrayList();
-            array.Add(1);
-            array.Add(2);
-            array.Add(3);
-            array.Add("Hello");
-            array.Add("Morning");
+            //ArrayList array = new ArrayList();
+            //array.Add(1);
+            //array.Add(2);
+            //array.Add(3);
+            //array.Add("Hello");
+            //array.Add("Morning");
 
-            foreach (int i in array)
+            //foreach (var i in array)
+            //{
+            //    if(i.GetType() == typeof(int))
+            //    {
+            //        Console.WriteLine(i);
+            //    }
+            //}
+
+            int[] arr = { 1, 2, 5, 234, 45363, 232737, 4635, 23736, 34382732, 343374373 };
+
+            int biggest = arr[0]; 
+
+            foreach (int i in arr)
             {
-                if(i.GetType() == typeof(int))
+                if (i > biggest)
                 {
-                    Console.WriteLine(i);
+                    biggest = i; 
                 }
             }
 
+            Console.WriteLine($"The biggest number in the array is: {biggest}");
 
 
             //int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
